@@ -1,0 +1,10 @@
+name: CraftControl
+version: 0.1.0
+main: com.craftcontrol.CraftControlPlugin
+api-version: 1.21
+author: Sergey
+
+commands:
+  cc:
+    description: CraftControl main command
+    usage: /cc status
