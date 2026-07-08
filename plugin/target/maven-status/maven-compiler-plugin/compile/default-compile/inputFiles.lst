@@ -1,3 +1,4 @@
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/CraftControlPlugin.java
+/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/CraftControlCommand.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/StatusCommand.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/ServerInfoService.java

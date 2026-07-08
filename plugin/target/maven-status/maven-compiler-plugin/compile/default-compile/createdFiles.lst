@@ -1,3 +1,4 @@
 com/craftcontrol/command/StatusCommand.class
 com/craftcontrol/service/ServerInfoService.class
+com/craftcontrol/command/CraftControlCommand.class
 com/craftcontrol/CraftControlPlugin.class

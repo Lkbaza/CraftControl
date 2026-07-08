@@ -1,9 +1,9 @@
 package com.craftcontrol;
 
+import com.craftcontrol.command.CraftControlCommand;
 import com.craftcontrol.command.StatusCommand;
 import com.craftcontrol.service.ServerInfoService;
 import org.bukkit.plugin.java.JavaPlugin;
-import com.craftcontrol.command.StatusCommand;
 
 public class CraftControlPlugin extends JavaPlugin {
 
@@ -16,7 +16,9 @@ public class CraftControlPlugin extends JavaPlugin {
 
         StatusCommand statusCommand = new StatusCommand(serverInfoService);
 
-        getCommand("cc").setExecutor(statusCommand);
+        CraftControlCommand craftControlCommand = new CraftControlCommand(statusCommand);
+
+        getCommand("cc").setExecutor(craftControlCommand);
 
         getLogger().info("[CraftControl] Plugin enabled!");
     }
