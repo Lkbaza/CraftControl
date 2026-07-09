@@ -19,7 +19,24 @@ public class StatusCommand implements CommandExecutor {
                              String label,
                              String[] args) {
 
-        sender.sendMessage("CraftControl работает!");
+        sender.sendMessage("========= CraftControl =========");
+
+        sender.sendMessage("");
+
+        sender.sendMessage("Версия сервера: " +
+                serverInfoService.getName() + " " +
+                serverInfoService.getMinecraftVersion());
+        sender.sendMessage("Игроков онлайн: " + serverInfoService.getOnlinePlayerCount());
+        sender.sendMessage("Миров: " + serverInfoService.getWorldCount());
+
+        sender.sendMessage("");
+
+        sender.sendMessage("  Использовано памяти: " + serverInfoService.getUsedMemoryMB() + " MB");
+        sender.sendMessage("  Максимум памяти : " + serverInfoService.getMaxMemoryMB() + " MB");
+
+        sender.sendMessage("");
+
+        sender.sendMessage("==============================");
 
         return true;
     }

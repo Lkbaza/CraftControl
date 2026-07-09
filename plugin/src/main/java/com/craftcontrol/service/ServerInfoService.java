@@ -2,9 +2,10 @@ package com.craftcontrol.service;
 
 import org.bukkit.Bukkit;
 
+
 public class ServerInfoService {
 
-    public int getOnlinePlayers() {
+    public int getOnlinePlayerCount() {
         return Bukkit.getOnlinePlayers().size();
     }
 
@@ -12,9 +13,14 @@ public class ServerInfoService {
         return Bukkit.getWorlds().size();
     }
 
-    public String getVersion() {
-        return Bukkit.getVersion();
+    public String getMinecraftVersion() {
+        return Bukkit.getMinecraftVersion();
     }
+
+    public String getName() {
+        return Bukkit.getName();
+    }
+
 
     public long getUsedMemoryMB() {
 
