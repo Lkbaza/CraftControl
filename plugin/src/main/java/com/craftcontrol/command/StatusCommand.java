@@ -1,16 +1,16 @@
 package com.craftcontrol.command;
 
-import com.craftcontrol.service.ServerInfoService;
+import com.craftcontrol.provider.ServerInfoProvider;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class StatusCommand implements CommandExecutor {
 
-    private final ServerInfoService serverInfoService;
+    private final ServerInfoProvider serverInfoProvider;
 
-    public StatusCommand(ServerInfoService serverInfoService) {
-        this.serverInfoService = serverInfoService;
+    public StatusCommand(ServerInfoProvider serverInfoProvider) {
+        this.serverInfoProvider = serverInfoProvider;
     }
 
     @Override
@@ -24,15 +24,15 @@ public class StatusCommand implements CommandExecutor {
         sender.sendMessage("");
 
         sender.sendMessage("Версия сервера: " +
-                serverInfoService.getName() + " " +
-                serverInfoService.getMinecraftVersion());
-        sender.sendMessage("Игроков онлайн: " + serverInfoService.getOnlinePlayerCount());
-        sender.sendMessage("Миров: " + serverInfoService.getWorldCount());
+                serverInfoProvider.getName() + " " +
+                serverInfoProvider.getMinecraftVersion());
+        sender.sendMessage("Игроков онлайн: " + serverInfoProvider.getOnlinePlayerCount());
+        sender.sendMessage("Миров: " + serverInfoProvider.getWorldCount());
 
         sender.sendMessage("");
 
-        sender.sendMessage("  Использовано памяти: " + serverInfoService.getUsedMemoryMB() + " MB");
-        sender.sendMessage("  Максимум памяти : " + serverInfoService.getMaxMemoryMB() + " MB");
+        sender.sendMessage("  Использовано памяти: " + serverInfoProvider.getUsedMemoryMB() + " MB");
+        sender.sendMessage("  Максимум памяти : " + serverInfoProvider.getMaxMemoryMB() + " MB");
 
         sender.sendMessage("");
 

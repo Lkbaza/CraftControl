@@ -1,4 +1,4 @@
-package com.craftcontrol.Interface;
+package com.craftcontrol.provider;
 
 public interface ServerInfoProvider {
 
