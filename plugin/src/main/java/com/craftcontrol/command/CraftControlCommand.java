@@ -11,9 +11,12 @@ public class CraftControlCommand implements CommandExecutor {
 
     private final MemoryCommand memoryCommand;
 
-    public CraftControlCommand(StatusCommand statusCommand, MemoryCommand memoryCommand) {
+    private final WorldCommand worldCommand;
+
+    public CraftControlCommand(StatusCommand statusCommand, MemoryCommand memoryCommand, WorldCommand worldCommand) {
         this.statusCommand = statusCommand;
         this.memoryCommand = memoryCommand;
+        this.worldCommand = worldCommand;
     }
 
     @Override
@@ -26,12 +29,16 @@ public class CraftControlCommand implements CommandExecutor {
             sender.sendMessage("Использование:");
             sender.sendMessage("/cc status - информация о сервере");
             sender.sendMessage("/cc memory - информация о памяти");
+            sender.sendMessage("/cc world - информация о количествах миров");
             return true;
         } else if (args[0].equals("status")) {
             statusCommand.onCommand(sender, command, label, args);
             return true;
         }    else if (args[0].equals("memory")) {
             memoryCommand.onCommand(sender, command, label, args);
+            return true;
+        } else if (args[0].equals("world")) {
+            worldCommand.onCommand(sender, command, label, args);
             return true;
         } else {
             sender.sendMessage("Неизвестная подкоманда");
