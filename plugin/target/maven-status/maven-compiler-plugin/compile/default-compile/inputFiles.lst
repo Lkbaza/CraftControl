@@ -1,7 +1,10 @@
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/CraftControlPlugin.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/CraftControlCommand.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/MemoryCommand.java
+/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/PlayerCommand.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/StatusCommand.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/WorldCommand.java
-/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/provider/ServerInfoProvider.java
+/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/MemoryService.java
+/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/PlayerService.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/ServerInfoService.java
+/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/WorldService.java

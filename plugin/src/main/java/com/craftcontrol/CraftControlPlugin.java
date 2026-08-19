@@ -1,28 +1,34 @@
 package com.craftcontrol;
 
-import com.craftcontrol.command.CraftControlCommand;
-import com.craftcontrol.command.MemoryCommand;
-import com.craftcontrol.command.StatusCommand;
-import com.craftcontrol.command.WorldCommand;
+import com.craftcontrol.command.*;
+import com.craftcontrol.service.MemoryService;
+import com.craftcontrol.service.PlayerService;
 import com.craftcontrol.service.ServerInfoService;
+import com.craftcontrol.service.WorldService;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CraftControlPlugin extends JavaPlugin {
 
-    private ServerInfoService serverInfoService;
-
     @Override
     public void onEnable() {
 
-        serverInfoService = new ServerInfoService();
+        ServerInfoService serverInfoService = new ServerInfoService();
 
-        StatusCommand statusCommand = new StatusCommand(serverInfoService);
+        PlayerService playerService = new PlayerService();
 
-        MemoryCommand memoryCommand = new MemoryCommand(serverInfoService);
+        WorldService worldService = new WorldService();
 
-        WorldCommand worldCommand = new WorldCommand(serverInfoService);
+        MemoryService memoryService = new MemoryService();
 
-        CraftControlCommand craftControlCommand = new CraftControlCommand(statusCommand, memoryCommand, worldCommand);
+        StatusCommand statusCommand = new StatusCommand(serverInfoService, playerService, worldService, memoryService);
+
+        MemoryCommand memoryCommand = new MemoryCommand(memoryService);
+
+        WorldCommand worldCommand = new WorldCommand(worldService);
+
+        PlayerCommand playerCommand = new PlayerCommand(playerService);
+
+        CraftControlCommand craftControlCommand = new CraftControlCommand(statusCommand, memoryCommand, worldCommand, playerCommand);
 
         getCommand("cc").setExecutor(craftControlCommand);
 

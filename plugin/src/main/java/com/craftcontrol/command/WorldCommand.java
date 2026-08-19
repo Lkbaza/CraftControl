@@ -1,16 +1,16 @@
 package com.craftcontrol.command;
 
-import com.craftcontrol.provider.ServerInfoProvider;
+import com.craftcontrol.service.WorldService;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class WorldCommand implements CommandExecutor {
 
-    private final ServerInfoProvider serverInfoProvider;
+    private final WorldService worldService;
 
-    public WorldCommand (ServerInfoProvider serverInfoProvider) {
-        this.serverInfoProvider = serverInfoProvider;
+    public WorldCommand (WorldService worldService) {
+        this.worldService = worldService;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class WorldCommand implements CommandExecutor {
 
         sender.sendMessage("");
 
-        sender.sendMessage("Количество миров: " + serverInfoProvider.getWorldCount());
+        sender.sendMessage("Количество миров: " + worldService.getWorldCount());
 
         sender.sendMessage("");
 

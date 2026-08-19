@@ -13,10 +13,13 @@ public class CraftControlCommand implements CommandExecutor {
 
     private final WorldCommand worldCommand;
 
-    public CraftControlCommand(StatusCommand statusCommand, MemoryCommand memoryCommand, WorldCommand worldCommand) {
+    private final PlayerCommand playerCommand;
+
+    public CraftControlCommand(StatusCommand statusCommand, MemoryCommand memoryCommand, WorldCommand worldCommand, PlayerCommand playerCommand) {
         this.statusCommand = statusCommand;
         this.memoryCommand = memoryCommand;
         this.worldCommand = worldCommand;
+        this.playerCommand = playerCommand;
     }
 
     @Override
@@ -30,19 +33,27 @@ public class CraftControlCommand implements CommandExecutor {
             sender.sendMessage("/cc status - информация о сервере");
             sender.sendMessage("/cc memory - информация о памяти");
             sender.sendMessage("/cc world - информация о количествах миров");
+            sender.sendMessage("/cc players - информация о количестве игроков онлайн");
             return true;
-        } else if (args[0].equals("status")) {
-            statusCommand.onCommand(sender, command, label, args);
-            return true;
-        }    else if (args[0].equals("memory")) {
-            memoryCommand.onCommand(sender, command, label, args);
-            return true;
-        } else if (args[0].equals("world")) {
-            worldCommand.onCommand(sender, command, label, args);
-            return true;
-        } else {
-            sender.sendMessage("Неизвестная подкоманда");
-            return true;
+        }
+
+        switch (args[0].toLowerCase()) {
+
+            case "status":
+                return statusCommand.onCommand(sender, command, label, args);
+
+            case "memory":
+                return memoryCommand.onCommand(sender, command, label, args);
+
+            case "world":
+                return worldCommand.onCommand(sender, command, label, args);
+
+            case "players":
+                return playerCommand.onCommand(sender, command, label, args);
+
+            default:
+                sender.sendMessage("Неизвестная подкоманда");
+                return true;
         }
     }
 }
