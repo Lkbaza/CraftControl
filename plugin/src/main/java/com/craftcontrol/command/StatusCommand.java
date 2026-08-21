@@ -1,28 +1,16 @@
 package com.craftcontrol.command;
 
-import com.craftcontrol.service.MemoryService;
-import com.craftcontrol.service.PlayerService;
-import com.craftcontrol.service.ServerInfoService;
-import com.craftcontrol.service.WorldService;
+import com.craftcontrol.service.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 public class StatusCommand implements CommandExecutor {
 
-    private final ServerInfoService serverInfoService;
+    private final StatusService statusService;
 
-    private final PlayerService playerService;
-
-    private final WorldService worldService;
-
-    private final MemoryService memoryService;
-
-    public StatusCommand(ServerInfoService serverInfoService, PlayerService playerService, WorldService worldService, MemoryService memoryService) {
-        this.serverInfoService = serverInfoService;
-        this.playerService = playerService;
-        this.worldService = worldService;
-        this.memoryService = memoryService;
+    public StatusCommand(StatusService statusService) {
+        this.statusService = statusService;
     }
 
     @Override
@@ -36,15 +24,15 @@ public class StatusCommand implements CommandExecutor {
         sender.sendMessage("");
 
         sender.sendMessage("Версия сервера: " +
-                serverInfoService.getName() + " " +
-                serverInfoService.getMinecraftVersion());
-        sender.sendMessage("Игроков онлайн: " + playerService.getOnlinePlayerCount());
-        sender.sendMessage("Миров: " + worldService.getWorldCount());
+                statusService.getServerName() + " " +
+                statusService.getMinecraftVersion());
+        sender.sendMessage("Игроков онлайн: " + statusService.getOnlinePlayers());
+        sender.sendMessage("Миров: " + statusService.getWorldCount());
 
         sender.sendMessage("");
 
-        sender.sendMessage("  Использовано памяти: " + memoryService.getUsedMemoryMB() + " MB");
-        sender.sendMessage("  Максимум памяти : " + memoryService.getMaxMemoryMB() + " MB");
+        sender.sendMessage("  Использовано памяти: " + statusService.getUsedMemoryMB() + " MB");
+        sender.sendMessage("  Максимум памяти : " + statusService.getMaxMemoryMB() + " MB");
 
         sender.sendMessage("");
 
