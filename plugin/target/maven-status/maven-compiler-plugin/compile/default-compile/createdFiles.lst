@@ -1,10 +1,13 @@
-com/craftcontrol/service/MemoryService.class
 com/craftcontrol/command/StatusCommand.class
 com/craftcontrol/command/MemoryCommand.class
+com/craftcontrol/command/CraftControlCommand$1.class
+com/craftcontrol/command/CommandType.class
+com/craftcontrol/service/ServerInfoService.class
+com/craftcontrol/command/CraftControlCommand.class
+com/craftcontrol/service/MemoryService.class
+com/craftcontrol/service/StatusService.class
 com/craftcontrol/service/PlayerService.class
 com/craftcontrol/CraftControlPlugin.class
 com/craftcontrol/command/WorldCommand.class
 com/craftcontrol/service/WorldService.class
 com/craftcontrol/command/PlayerCommand.class
-com/craftcontrol/service/ServerInfoService.class
-com/craftcontrol/command/CraftControlCommand.class

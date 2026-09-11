@@ -37,23 +37,32 @@ public class CraftControlCommand implements CommandExecutor {
             return true;
         }
 
-        switch (args[0].toLowerCase()) {
+        try {
+            CommandType type = CommandType.valueOf(args[0].toUpperCase());
 
-            case "status":
-                return statusCommand.onCommand(sender, command, label, args);
+            switch (type) {
 
-            case "memory":
-                return memoryCommand.onCommand(sender, command, label, args);
+                case STATUS:
+                    return statusCommand.onCommand(sender, command, label, args);
 
-            case "world":
-                return worldCommand.onCommand(sender, command, label, args);
+                case MEMORY:
+                    return memoryCommand.onCommand(sender, command, label, args);
 
-            case "players":
-                return playerCommand.onCommand(sender, command, label, args);
+                case WORLD:
+                    return worldCommand.onCommand(sender, command, label, args);
 
-            default:
-                sender.sendMessage("Неизвестная подкоманда");
-                return true;
+                case PLAYERS:
+                    return playerCommand.onCommand(sender, command, label, args);
+
+                default:
+                    sender.sendMessage("Неизвестная подкоманда");
+                    return true;
+            }
+
+        } catch (IllegalArgumentException e) {
+            sender.sendMessage("Неизвестная подкоманда");
+            return true;
+
         }
     }
 }

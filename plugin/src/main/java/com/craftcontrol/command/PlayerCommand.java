@@ -19,19 +19,25 @@ public class PlayerCommand implements CommandExecutor {
                              String label,
                              String[] args) {
 
-        sender.sendMessage("========== Players ==========");
 
-        sender.sendMessage("");
+        if (args.length == 1) {
+            sender.sendMessage("Использование :");
+            sender.sendMessage("/cc players online - игроки онлайн");
+            sender.sendMessage("/cc players max - максимальное количество игроков");
+            return true;
+        }
 
-        sender.sendMessage("Игроков онлайн: " + playerService.getOnlinePlayerCount());
+        if (args[1].equals("online")) {
+            sender.sendMessage("Количество игроков онлайн - " + playerService.getOnlinePlayerCount());
+            return true;
+        }
 
-        sender.sendMessage("Максимум игроков: " + playerService.getMaxPlayers());
+        if (args[1].equals("max")) {
+            sender.sendMessage("Максимальное количество игроков - " + playerService.getMaxPlayers());
+            return true;
+        }
 
-        sender.sendMessage("");
-
-        sender.sendMessage("============================");
-
+            sender.sendMessage("Ошибка: Неизвестный параметр: " + args[1]);
         return true;
     }
-
 }
