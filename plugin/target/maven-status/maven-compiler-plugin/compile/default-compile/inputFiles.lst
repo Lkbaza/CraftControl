@@ -5,8 +5,10 @@
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/PlayerCommand.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/StatusCommand.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/command/WorldCommand.java
+/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/listener/PlayerStatsListener.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/MemoryService.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/PlayerService.java
+/home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/PlayerStatsService.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/ServerInfoService.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/StatusService.java
 /home/lkbaza/workspace/CraftControl/plugin/src/main/java/com/craftcontrol/service/WorldService.java
