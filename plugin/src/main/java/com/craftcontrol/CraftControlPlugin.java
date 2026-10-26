@@ -23,7 +23,8 @@ public class CraftControlPlugin extends JavaPlugin {
 
         StatusService statusService = new StatusService(serverInfoService, playerService, worldService, memoryService);
 
-        this.playerStatsService = new PlayerStatsService();
+        this.playerStatsService = new PlayerStatsService(this);
+        this.playerStatsService.loadStats();
 
         PlayerStatsListener playerStatsListener = new PlayerStatsListener(this.playerStatsService);
 
@@ -46,6 +47,7 @@ public class CraftControlPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        playerStatsService.saveStats();
         getLogger().info("[CraftControl] Plugin disabled!");
     }
 }
